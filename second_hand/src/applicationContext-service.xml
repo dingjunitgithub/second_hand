@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 用户 -->
+	<bean id="userService" name="userService"
+		class="com.second_hand.user.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+
+	</bean>
+
+	<bean id="cityService" name="cityService"
+		class="com.second_hand.adInfo.service.impl.CityInfoServiceImpl">
+		<property name="cityDao" ref="cityDao"></property>
+	</bean>
+
+	<bean id="schoolService" name="schoolService"
+		class="com.second_hand.adInfo.service.impl.SchoolInfoServiceImpl">
+		<property name="schoolDao" ref="schoolDao"></property>
+	</bean>
+
+	<bean id="departService" name="departService"
+		class="com.second_hand.adInfo.service.impl.DepartInfoServiceImpl">
+		<property name="departDao" ref="departDao"></property>
+	</bean>
+
+	<bean id="goodsClassService" name="goodsClassService"
+		class="com.second_hand.goodsType.service.impl.GoodsClassServiceImpl">
+		<property name="goodsClasssDao" ref="goodsClasssDao"></property>
+	</bean>
+
+	<bean id="suggService" name="suggService"
+		class="com.second_hand.suggestion.service.impl.SuggestServiceImpl">
+		<property name="suggDao" ref="suggDao"></property>
+	</bean>
+
+	<bean id="goodsZrService" name="goodsZrService"
+		class="com.second_hand.goods.service.impl.GoodsZrServiceImpl">
+		<property name="goodsZrDao" ref="goodsZrDao"></property>
+	</bean>
+
+	<bean id="goodsQgService" name="goodsQgService"
+		class="com.second_hand.goods.service.impl.GoodsQgServiceImpl">
+		<property name="goodsQgDao" ref="goodsQgDao"></property>
+	</bean>
+
+	<bean id="shopCarService" name="shopCarService"
+		class="com.second_hand.sell.service.impl.ShopCarServiceImpl">
+		<property name="shopCarDao" ref="shopCarDao"></property>
+	</bean>
+
+	<bean id="goodOrderService" name="goodOrderService"
+		class="com.second_hand.sell.service.impl.GoodsOrderServiceImpl">
+		<property name="orderDao" ref="orderDao"></property>
+		<property name="goodsZrDao" ref="goodsZrDao"></property>
+		<property name="userDao" ref="userDao"></property>
+		<property name="integrationDao" ref="integrationDao"></property>
+		<property name="ruleDao" ref="ruleDao"></property>
+		<property name="commentDao" ref="commentDao"></property>
+	</bean>
+
+	<bean id="commentService" name="commentService"
+		class="com.second_hand.comment.service.impl.CommentServiceImpl">
+		<property name="commentDao" ref="commentDao"></property>
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
+
+	<!-- <bean id="revertService" name="revertService"
+		class="com.second_hand.comment.service.impl.RevertServiceImpl">
+		<property name="revertDao" ref="revertDao"></property>
+	</bean>
+ -->
+	<bean id="ruleService" name="ruleService"
+		class="com.second_hand.user.service.impl.RuleServiceImpl">
+		<property name="ruleDao" ref="ruleDao"></property>
+	</bean>
+	
+	<bean id="integrationService" name="integrationService"
+		class="com.second_hand.user.service.impl.IntegrationServiceImpl">
+		<property name="integrationDao" ref="integrationDao"></property>
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="OrderInfo" table="tb_orderInfo">
+		<id name="orderId">
+			<generator class="sequence">
+				<param name="sequence">seq_orInfo_orderId</param>
+			</generator>
+		</id>
+
+		<property name="buyStatu" type="int"></property>
+		<property name="saleStatu" type="int"></property>
+		<property name="statu" type="string"></property>
+		<property name="pubDate" type="string"></property>
+		<property name="goodsPicOne" type="string"></property>
+		<property name="evaluate" type="string"></property>
+
+		<many-to-one name="user" column="userId" lazy="false"></many-to-one>
+		<many-to-one name="goodsZr" column="goodsZrId" lazy="false"></many-to-one>
+
+
+
+	</class>
+
+</hibernate-mapping>

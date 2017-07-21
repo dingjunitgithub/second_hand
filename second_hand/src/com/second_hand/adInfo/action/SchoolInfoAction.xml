@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="school" namespace="/school" extends="second_hand">
+		<action name="school_*" class="schoolAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toList">/jsp/user/school_list.jsp</result>
+			<result name="toAdd">/jsp/user/school_add.jsp</result>
+			<result name="add" type="redirect">school_toList.action</result>
+			<result name="toUpdate">/jsp/user/school_update.jsp</result>
+			<result name="update" type="redirect">school_toList.action</result>
+			<result name="delete" type="redirect">school_toList.action</result>
+			<result name="findByName" type="json">
+				<param name="root">yuanxis</param>
+			</result>
+		</action>
+		<action name="schoolAdd" class="schoolAction">
+			<interceptor-ref name="loginStack" />
+			<result name="success">/depart.jsp</result>
+		</action>
+		<action name="findSchool" class="schoolAction">
+			<interceptor-ref name="loginStack" />
+			<result name="findSchoolByCity" type="json">
+				<param name="root">state</param>
+			</result>
+			<result name="toList">/jsp/user/school_list.jsp</result>
+
+		</action>
+	</package>
+</struts>

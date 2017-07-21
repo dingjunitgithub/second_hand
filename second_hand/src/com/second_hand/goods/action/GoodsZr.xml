@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="goodsZr" namespace="/goodsZr" extends="second_hand">
+		<action name="goodszr_*" class="goodsZrAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="addPraise" type="json">
+				<param name="root">state</param>
+			</result>
+			
+			<result name="toListByUser">/jsp/user/usergoodszr_list.jsp</result>
+			<result name="toAdd">/jsp/user/goodszr_add.jsp</result>
+			<result name="add" type="redirect">goodsZr/goodszr_toListByUser.action
+			</result>
+			<result name="toUpdate">/jsp/user/goodszr_update.jsp</result>
+			<result name="toDetail">/jsp/user/goodszr_detail.jsp</result>
+			<result name="update" type="redirect">goodsZr/goodszr_toListByUser.action
+			</result>
+			
+			<result name="deleteByUser" type="redirect">goodsZr/goodszr_toListByUser.action
+			</result>
+			<result name="updateStatu" type="redirect">goodsZr/goodszr_toListByUser.action
+			</result>
+			<result name="indexGoodsZr">/jsp/goods/goods.jsp</result>
+			<result name="indexSearch">/jsp/goods/goods_keyword.jsp?keyword=${keyword}&amp;tags=keyword
+			</result>
+			<result name="toDetailPage">index_detail.jsp</result>
+			<result name="indexSearchByGoodsclass">/jsp/goods/goods_className.jsp?goodsclass=${goodsclass}&amp;tags=goodsclass
+			</result>
+			<result name="toListByUserMore">/jsp/user/userOtherGoods.jsp</result>
+		</action>
+		
+
+		<action name="noint_goodszr_*" class="goodsZrAction" method="{1}">
+			<result name="indexGoodsZr">/jsp/goods/goods.jsp</result>
+			<result name="indexSearch">/jsp/goods/goods_keyword.jsp?keyword=${keyword}&amp;tags=keyword
+			</result>
+			<result name="toDetailPage">/index_detail.jsp</result>
+			<result name="toListByUserMore">/jsp/user/userOtherGoods.jsp</result>
+			<result name="indexSearchByGoodsclass">/jsp/goods/goods_className.jsp?goodsclass=${goodsclass}&amp;tags=goodsclass
+			</result>
+		</action>
+	</package>
+</struts>

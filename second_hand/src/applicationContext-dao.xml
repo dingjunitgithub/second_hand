@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 用户 -->
+	<bean id="userDao" name="userDao"
+		class="com.second_hand.user.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="cityDao" name="cityDao"
+		class="com.second_hand.adInfo.dao.impl.CityInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="schoolDao" name="schoolDao"
+		class="com.second_hand.adInfo.dao.impl.SchoolInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+	<bean id="departDao" name="departDao"
+		class="com.second_hand.adInfo.dao.impl.DepartInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="goodsClasssDao" name="goodsClasssDao"
+		class="com.second_hand.goodsType.dao.impl.GoodsClassDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="suggDao" name="suggDao"
+		class="com.second_hand.suggestion.dao.impl.SuggestDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="goodsZrDao" name="goodsZrDao"
+		class="com.second_hand.goods.dao.impl.GoodsZrDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="goodsQgDao" name="goodsQgDao"
+		class="com.second_hand.goods.dao.impl.GoodsQgDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="shopCarDao" name="shopCarDao"
+		class="com.second_hand.sell.dao.impl.ShopCarDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="orderDao" name="orderDao"
+		class="com.second_hand.sell.dao.impl.GoodsOrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="commentDao" name="commentDao"
+		class="com.second_hand.comment.dao.impl.CommentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+<!-- 	<bean id="revertDao" name="revertDao"
+		class="com.second_hand.comment.dao.impl.RevertDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	 -->
+	
+	<bean id="ruleDao" name="ruleDao"
+		class="com.second_hand.user.dao.impl.RuleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="integrationDao" name="integrationDao"
+		class="com.second_hand.user.dao.impl.IntegrationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+</beans>

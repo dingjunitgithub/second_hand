@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="userAction" class="com.second_hand.user.action.UserAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+		<property name="schoolService" ref="schoolService"></property>
+		<property name="cityService" ref="cityService"></property>
+		<property name="departService" ref="departService"></property>
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+	</bean>
+
+	<bean id="cityAction" class="com.second_hand.adInfo.action.CityInfoAction"
+		scope="prototype">
+		<property name="cityService" ref="cityService"></property>
+	</bean>
+
+	<bean id="schoolAction" class="com.second_hand.adInfo.action.SchoolInfoAction"
+		scope="prototype">
+		<property name="schoolService" ref="schoolService"></property>
+		<property name="cityService" ref="cityService"></property>
+	</bean>
+
+	<bean id="departAction" class="com.second_hand.adInfo.action.DepartInfoAction"
+		scope="prototype">
+		<property name="departService" ref="departService"></property>
+		<property name="schoolService" ref="schoolService"></property>
+		<property name="cityService" ref="cityService"></property>
+	</bean>
+
+	<bean id="goodsclassAction" class="com.second_hand.goodsType.action.GoodsClassAction"
+		scope="prototype">
+		<property name="goodsClassService" ref="goodsClassService"></property>
+	</bean>
+
+	<bean id="indexAction" class="com.second_hand.base.action.IndexAction"
+		scope="prototype">
+		<property name="goodsClassService" ref="goodsClassService"></property>
+		<property name="cityService" ref="cityService"></property>
+	</bean>
+
+	<bean id="suggAction" class="com.second_hand.suggestion.action.SuggestAction"
+		scope="prototype">
+		<property name="suggService" ref="suggService"></property>
+	</bean>
+
+	<bean id="goodsZrAction" class="com.second_hand.goods.action.GoodsZrAction"
+		scope="prototype">
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+		<property name="commentService" ref="commentService"></property>
+		<property name="goodsZrService" ref="goodsZrService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="goodsClassService" ref="goodsClassService"></property>
+	</bean>
+
+
+	<bean id="goodsQgAction" class="com.second_hand.goods.action.GoodsQgAction"
+		scope="prototype">
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+		<property name="goodsQgService" ref="goodsQgService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="goodsClassService" ref="goodsClassService"></property>
+	</bean>
+
+	<bean id="cartAction" class="com.second_hand.sell.action.ShopCarAction"
+		scope="prototype">
+		<property name="shopCarService" ref="shopCarService"></property>
+		<property name="goodsZrService" ref="goodsZrService"></property>
+		<property name="goodOrderService" ref="goodOrderService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+	</bean>
+
+	<bean id="orderAction" class="com.second_hand.sell.action.GoodsOrderAction"
+		scope="prototype">
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+		<property name="goodOrderService" ref="goodOrderService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="commentAction" class="com.second_hand.comment.action.CommentAction"
+		scope="prototype">
+		<property name="commentService" ref="commentService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="goodsZrService" ref="goodsZrService"></property>
+		<property name="ruleService" ref="ruleService"></property>
+		<property name="integrationService" ref="integrationService"></property>
+	</bean>
+
+	<!-- <bean id="revertAction" class="com.second_hand.comment.action.RevertAction"
+		scope="prototype">
+		<property name="commentService" ref="commentService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="revertService" ref="revertService"></property>
+	</bean> -->
+
+	<bean id="ruleAction" class="com.second_hand.user.action.RuleAction"
+		scope="prototype">
+		<property name="ruleService" ref="ruleService"></property>
+	</bean>
+	
+	<bean id="integration" class="com.second_hand.user.action.IntegrationAction"
+		scope="prototype">
+		<property name="integrationService" ref="integrationService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean id="fileUploadAction" class="com.second_hand.base.action.FileUploadAction"
+		scope="prototype">
+		
+	</bean>
+</beans>

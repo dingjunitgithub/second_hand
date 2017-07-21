@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="GoodsQg" table="tb_goodsQg">
+		<id name="goodsQgId" >
+			<generator class="sequence">
+				<param name="sequence">seq_gQg_goodsQgId</param>
+			</generator>
+		</id>
+          
+		<property name="goodsName" type="string"></property>
+		<property name="goodsMsg" type="string"></property>
+		<property name="address" type="string"></property>
+		<property name="price" type="float"></property>
+		<property name="phone" type="string"></property>
+		<property name="qq" type="string"></property>
+		<property name="pubDate" type="string"></property>
+		<property name="statu" type="string"></property>
+		
+		
+	  <!-- 配置外键departmentInfo表的主键departId -->
+      <many-to-one name="classes" column="classId" lazy="false"></many-to-one> 
+      <many-to-one name="user" column="userId" lazy="false"></many-to-one> 
+
+		
+		
+	</class>
+
+</hibernate-mapping>

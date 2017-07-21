@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="Comment" table="tb_comments">
+		<id name="comId">
+			<generator class="sequence">
+				<param name="sequence">seq_com_comId</param>
+			</generator>
+		</id>
+
+		<property name="revertSta" type="int"></property>
+		<property name="ctype" type="int"></property>
+		<property name="content" type="string"></property>
+		<property name="cdate" type="string"></property>
+		<property name="oldComId" type="int"></property>
+		<property name="autoType" type="int"></property>
+
+
+		<!-- 配置外键departmentInfo表的主键departId -->
+		<many-to-one name="goodsZr" column="goodsZrId" lazy="false"></many-to-one>
+		<many-to-one name="user" column="userId" lazy="false"></many-to-one>
+		<many-to-one name="toUser" column="toUserId" lazy="false"></many-to-one>
+
+	</class>
+
+</hibernate-mapping>

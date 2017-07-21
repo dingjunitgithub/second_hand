@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="order" namespace="/order" extends="second_hand">
+		<action name="order_*" class="orderAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toListSale">/jsp/user/order_sale.jsp</result>
+			<result name="toListBuy">/jsp/user/order_buy.jsp</result>
+			<result name="findEvaluateNotNull">/jsp/user/order_manage.jsp</result>
+			<result name="delete_evaluate">/jsp/user/order_manage.jsp</result>
+			<result name="findById" type="json">
+				<param name="root">state</param>
+			</result>
+			<result name="deleteSale" type="redirect">order_toListSale.action?condition=${condition}</result>
+			<result name="deleteBuy" type="redirect">order_toListBuy.action?condition=${condition}</result>
+			<result name="updateStatuToWaitRe" type="redirect">order_toListSale.action?condition=${condition}</result>
+			<result name="updateStatuToWaitEvalu" type="redirect">order_toListBuy.action?condition=${condition}</result>
+			<result name="evaluate" type="redirect">order_toListBuy.action?condition=${condition}</result>
+		
+		</action>
+			
+		<action name="noint_order_*" class="orderAction" method="{1}">
+			<result name="findEvaluateNotNullByUser" type="json">
+				<param name="root">state</param>
+			</result>
+			<result name="showUserSaleGoods">/jsp/user/userGoodsShow.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="GoodsClass" table="tb_goodsClass">
+		<id name="classId" >
+			<generator class="sequence">
+				<param name="sequence">seq_goodsClass_classId</param>
+			</generator>
+		</id>
+          
+		<property name="className" type="string"></property>
+      
+		   <bag name="goodsZrList" cascade="all" inverse="true" >
+			<key column="classId"></key>
+			<one-to-many class="GoodsZr"/>
+		</bag>
+		 <bag name="goodsQgList" cascade="all" inverse="true" >
+			<key column="classId"></key>
+			<one-to-many class="GoodsQg"/>
+		</bag>
+		
+	</class>
+
+</hibernate-mapping>

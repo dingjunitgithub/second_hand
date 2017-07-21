@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="index" namespace="/index" extends="second_hand">
+		<action name="indexOne" class="indexAction">
+			<result name="toIndexPage" type="json">
+				<param name="root">state</param>
+			</result>
+		</action>
+		<!-- <action name="index" class="indexAction">
+			<result name="toIndexPage">/index.jsp</result>
+		</action> -->
+		<action name="index" class="indexAction">
+			<result name="city" type="json">
+				<param name="root">state</param>
+			</result>
+			<result name="toIndexPage">/index.jsp</result>
+		</action>
+	
+	</package>
+</struts>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="user" namespace="/user" extends="second_hand">
+		<action name="loginAction" class="userAction">
+			<result name="success" type="json">
+				<param name="root">returnstr</param>
+			</result>
+		</action>
+		<action name="addAction" class="userAction">
+			<result name="success" type="json">
+				<param name="root">returnstr</param>
+			</result>
+		</action>
+		<action name="loginOutAction" class="userAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="user_*" class="userAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="updatePhotoUrl" type="json">
+				<param name="root">returnstr</param>
+			</result>
+			<result name="toAdminList">/jsp/user/admin_list.jsp</result>
+			<result name="toAddAdmin">/jsp/user/admin_add.jsp</result>
+			<result name="addAdmin" type="redirect">user/user_toAdminList.action</result>
+			<result name="findUserByEmail">/jsp/user/user_center.jsp</result>
+			<result name="toUpdatePage">/jsp/user/user_center_update.jsp</result>
+			<result name="topay">/jsp/user/pay.jsp</result>
+			<result name="toOutMoney">/jsp/user/outmoney.jsp</result>
+			<result name="update" type="redirect">user/user_findUserByEmail.action?email=${email}
+			</result>
+			<result name="pay" type="redirect">user/user_findUserByEmail.action?email=${email}
+			</result>
+			<result name="outMoney" type="redirect">user/user_findUserByEmail.action?email=${email}
+			</result>
+			<result name="toupdatepassword">/jsp/user/updatepassword.jsp</result>
+			<result name="toupdatepaypassword">/jsp/user/updatePayPassword.jsp</result>
+			<result name="updatepassword" type="json">
+				<param name="root">returnstr</param>
+			</result>
+			<result name="updatepaypassword" type="json">
+				<param name="root">returnstr</param>
+			</result>
+			<result name="toList">/jsp/user/user_list.jsp</result>
+			<result name="delete" type="redirect">user/user_toList.action</result>
+		</action>
+	</package>
+</struts>

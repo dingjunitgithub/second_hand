@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="Rule" table="tb_rule">
+		<id name="ruleId" >
+			<generator class="sequence">
+				<param name="sequence">seq_rule_ruleId</param>
+			</generator>
+		</id>
+          
+		<property name="ruleName" type="string"></property>
+		<property name="ruleValue" type="string"></property>
+		<property name="validTime" type="string"></property>
+		
+		<bag name="integraList" cascade="all" inverse="true">
+			<key column="ruleId"></key>
+			<one-to-many class="Integration" />
+		</bag>
+		
+	</class>
+
+</hibernate-mapping>

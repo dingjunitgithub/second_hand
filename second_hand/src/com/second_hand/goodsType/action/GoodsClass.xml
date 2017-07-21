@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="gClass" namespace="/gClass" extends="second_hand">
+		<action name="goodsclass_*" class="goodsclassAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toList">/jsp/user/goodsclass_list.jsp</result>
+			<result name="toAdd">/jsp/user/goodsclass_add.jsp</result>
+			<result name="add" type="redirect">gClass/goodsclass_toList.action</result>
+			<result name="toUpdate">/jsp/user/goodsclass_update.jsp</result>
+			<result name="update" type="redirect">gClass/goodsclass_toList.action</result>
+			<result name="delete" type="redirect">gClass/goodsclass_toList.action</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="goodsQg" namespace="/goodsQg" extends="second_hand">
+
+		<action name="goodsqg_*" class="goodsQgAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toList">/jsp/user/goodsqg_list.jsp</result>
+			<result name="toListByUser">/jsp/user/usergoodsqg_list.jsp</result>
+			<result name="toAdd">/jsp/user/goodsqg_add.jsp</result>
+			<result name="add" type="redirect">goodsqg_toListByUser.action</result>
+			<result name="toUpdate">/jsp/user/goodsqg_update.jsp</result>
+			<result name="toDetail">/jsp/user/goodsqg_detail.jsp</result>
+			<result name="update" type="redirect">goodsQg/goodsqg_toListByUser.action
+			</result>
+			<result name="delete" type="redirect">goodsQg/goodsqg_toList.action
+			</result>
+			<result name="deleteByUser" type="redirect">goodsQg/goodsqg_toListByUser.action
+			</result>
+			<result name="updateStatu" type="redirect">goodsQg/goodsqg_toListByUser.action
+			</result>
+			<result name="indexgoodsqg">/jsp/goods/goods.jsp</result>
+			<result name="indexSearch">/jsp/goods/goods.jsp?keyword=${keyword}&amp;tags=keyword
+			</result>
+			<result name="toDetailPage">index_detail.jsp</result>
+			<result name="indexSearchByGoodsclass">/jsp/goods/goods.jsp?goodsclass=${goodsclass}&amp;tags=goodsclass
+			</result>
+		</action>
+		<action name="noint_goodsqg_*" class="goodsQgAction" method="{1}">
+			<result name="indexGoodsQg">/jsp/goods/goodsqg.jsp</result>
+			<result name="toDetailPage">/index_detail_qg.jsp</result>
+		</action>
+	</package>
+</struts>

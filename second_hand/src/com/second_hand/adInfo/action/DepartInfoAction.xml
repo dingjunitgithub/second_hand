@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="depart" namespace="/depart" extends="second_hand">
+		<action name="depart_*" class="departAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toList">/jsp/user/depart_list.jsp</result>
+			<result name="toAdd">/jsp/user/depart_add.jsp</result>
+			<result name="add" type="redirect">depart/depart_toList.action</result>
+			<result name="toUpdate">/jsp/user/depart_update.jsp</result>
+			<result name="update" type="redirect">depart/depart_toList.action
+			</result>
+			<result name="delete" type="redirect">depart/depart_toList.action
+			</result>
+			<result name="findByName" type="json">
+				<param name="root">yuanxis</param>
+			</result>
+		</action>
+		<action name="departAdd" class="departAction">
+			<interceptor-ref name="loginStack" />
+			<result name="success">/success.jsp</result>
+		</action>
+		<action name="findDepart" class="departAction">
+			<interceptor-ref name="loginStack" />
+			<result name="findDepartBySchool" type="json">
+				<param name="root">state</param>
+			</result>
+		</action>
+
+
+	</package>
+</struts>

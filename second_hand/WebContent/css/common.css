@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+/*页面初始化样式 */
+body,img,p,h1,h2,h3,h4,h5,h6,ul,ol {margin:0; padding:0; list-style:none; border:none;}
+body {font-size:13px;font-family: "微软雅黑","Microsoft YaHei";}
+input {font-size: 12px;height:25px;border: 1px solid #e3e3e3;padding: 0px;vertical-align: text-bottom; margin-bottom:4px;margin:0px;}
+textarea {font-size: 14px;border: 1px solid #e3e3e3;margin-top: 4px;margin-bottom: 4px;padding: 0px;}
+select {font-size: 14px;height:25px;border: 1px solid #e3e3e3;margin-top: 4px;margin-bottom: 4px;padding: 0px;}
+table,table td,table th{border-collapse:collapse;}
+/*页面初始化样式 */
+
+.clearfix:after{ content:""; display:block;clear:both;}
+.clearfix{zoom:1;}
+
+.mybutton{width:95px;height:24px;color:blue;cursor: pointer;
+			  font-size:12px;border-radius:3px;margin:5px 0px;
+			  margin-left:5px;
+			  font-family:微软雅黑;background-color: #2cb2ff;
+			  color:#ffffff;border:0px;font-weight:bolder;}
+.mybutton:HOVER{background-color: #95dd91;}
+.navChoose{
+		float:left;
+		height:50px;
+		width:80px;
+		background-image:url(../index_img/nav-back_80x50.png);
+		line-height:40px;
+		text-align: center;
+		font-size:14px;
+		font-weight: bolder;
+		color:#ffffff;
+		border-radius:3px;
+		cursor: pointer;
+	}

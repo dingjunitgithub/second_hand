@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="suggest" namespace="/suggest" extends="second_hand">
+		<action name="sugg_*" class="suggAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="toList">/jsp/user/sugg_list.jsp</result>
+			<result name="delete" type="redirect">suggest/sugg_toList.action</result>
+			<result name="add" type="json">
+				<param name="root">returnstr</param>
+			</result>
+		</action>
+	</package>
+</struts>

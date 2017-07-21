@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">	
+<struts>
+	<constant value="spring" name="struts.objectFactory"></constant>
+	<constant value="emp" name="struts.custom.i18n.resources" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<constant value="false" name="struts.devMode"></constant>
+	<package name="second_hand" namespace="/second_hand" extends="json-default">
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="checklogin"
+				class="com.second_hand.interceptor.CheckLoginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="checklogin" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 拦截器验证是否登录（有无session） ，无登录跳转到登录页面 -->
+		<global-results>
+			<result name="nologin">/index.jsp</result>
+		</global-results>
+	</package>
+	<!-- 注册用户 -->
+	<include file="com/second_hand/user/action/User.xml"></include>
+	<!-- 注册城市信息 -->
+	<include file="com/second_hand/adInfo/action/CityInfoAction.xml"></include>
+	<!-- 注册学校信息 -->
+	<include file="com/second_hand/adInfo/action/SchoolInfoAction.xml"></include>
+	<!-- 注册院系信息 -->
+	<include file="com/second_hand/adInfo/action/DepartInfoAction.xml"></include>
+	<!-- 注册商品类型信息 -->
+	<include file="com/second_hand/goodsType/action/GoodsClass.xml"></include>
+	<!-- 注册首页 -->
+	<include file="com/second_hand/base/action/Index.xml"></include>
+	<!-- 注册网站建议及意见 -->
+	<include file="com/second_hand/suggestion/action/Suggest.xml"></include>
+	<!-- 注册商品转让信息 -->
+	<include file="com/second_hand/goods/action/GoodsZr.xml"></include>
+	<!-- 注册图片上传 -->
+	<include file="com/second_hand/base/action/FileUpload.xml"></include>
+	<!-- 注册商品求购信息 -->
+	<include file="com/second_hand/goods/action/GoodsQg.xml"></include>
+	<!-- 注册购物车信息 -->
+	<include file="com/second_hand/sell/action/ShopCar.xml"></include>
+	<!-- 注册订单 -->
+	<include file="com/second_hand/sell/action/GoodsOrder.xml"></include>
+	<!-- 注册用户留言 -->
+	<include file="com/second_hand/comment/action/Comment.xml"></include>
+	<!-- 注册积分规则 -->
+	<include file="com/second_hand/user/action/Rule.xml"></include>
+	<!-- 注册用户积分明细 -->
+	<include file="com/second_hand/user/action/Integration.xml"></include>
+</struts>

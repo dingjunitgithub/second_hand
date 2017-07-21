@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!--加载数据库文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:db.properties"></property>
+	</bean>
+	<!-- 配置数据源 -->
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${connection.driverClassName}" />
+		<property name="url" value="${connection.url}" />
+		<property name="username" value="${connection.username}" />
+		<property name="password" value="${connection.password}" />
+	</bean>
+
+	<!-- 配置sessionFactory -->
+	<!-- 每个数据库都有一个SessionFactory对象 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<!-- 注册.hbm.xml文件 -->
+			<list>
+				<!-- 注册Hibernate的映射文件.hbm.xml -->
+				<!-- 用户 -->
+				<value>com/second_hand/hbm/xml/User.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/CityInfo.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/SchoolInfo.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/DepartmentInfo.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/GoodsClass.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/Suggestion.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/GoodsZr.hbm.xml</value>
+				<value>com/second_hand/hbm/xml/GoodsQg.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/OrderInfo.hbm.xml</value>
+
+				<value>com/second_hand/hbm/xml/Cart.hbm.xml</value>
+				
+				<value>com/second_hand/hbm/xml/Comment.hbm.xml</value>
+				
+			
+				
+				<value>com/second_hand/hbm/xml/Rule.hbm.xml</value>
+				
+				<value>com/second_hand/hbm/xml/Integration.hbm.xml</value>
+
+			</list>
+
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

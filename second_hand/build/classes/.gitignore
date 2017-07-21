@@ -1,0 +1,8 @@
+/applicationContext-action.xml
+/applicationContext-dao.xml
+/applicationContext-service.xml
+/applicationContext.xml
+/com
+/db.properties
+/second.sql
+/struts.xml

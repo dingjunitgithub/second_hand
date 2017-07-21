@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="User" table="tb_user">
+		<id name="userId">
+			<generator class="sequence">
+				<param name="sequence">seq_user_userId</param>
+			</generator>
+		</id>
+		<property name="userType" type="int"></property>
+		<property name="nickname" type="string"></property>
+		<property name="password" type="string"></property>
+		<property name="email" type="string"></property>
+		<property name="photoUrl" type="string"></property>
+		<property name="qq" type="string"></property>
+		<property name="integral" type="int"></property>
+		<property name="phone" type="string"></property>
+		<property name="accountBalance" type="float"></property>
+		<property name="payPassword" type="string"></property>
+		<many-to-one name="depart" column="departId" lazy="false"></many-to-one>
+		<bag name="goodsZrList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="GoodsZr" />
+		</bag>
+		<bag name="goodsQgList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="GoodsQg" />
+		</bag>
+		<bag name="carList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="Cart" />
+		</bag>
+		<bag name="orderList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="OrderInfo" />
+		</bag>
+		<bag name="commentList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="Comment" />
+		</bag>
+		<bag name="commentMeList" cascade="all" inverse="true">
+			<key column="toUserId"></key>
+			<one-to-many class="Comment" />
+		</bag>
+		<bag name="integraList" cascade="all" inverse="true">
+			<key column="userId"></key>
+			<one-to-many class="Integration" />
+		</bag>
+	</class>
+</hibernate-mapping>

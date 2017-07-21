@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="cart" namespace="/cart" extends="second_hand">
+		<action name="cart_*" class="cartAction" method="{1}">
+			<interceptor-ref name="loginStack" />
+			<result name="findAllByUserid">/jsp/user/cart.jsp</result>
+			
+			<result name="deleteMore" type="redirect">cart/cart_findAllByUserid.action</result>
+			<result name="delete" type="json">
+				<param name="root">returnstr</param>
+			</result>
+			<result name="getCartNum" type="json">
+				<param name="root">cartnum</param>
+			</result>
+			<result name="add" type="json">
+				<param name="root">returnstr</param>
+			</result>
+			<result name="buy" type="json">
+				<param name="root">returnstr</param>
+			</result>
+		</action>
+
+		<action name="check" class="cartAction">
+			<interceptor-ref name="loginStack" />
+			<result name="checkPayPassword" type="json">
+				<param name="root">returnstr</param>
+			</result>
+		</action>
+
+		<action name="noint_cart_*" class="cartAction" method="{1}">
+			<result name="getCartNum" type="json">
+				<param name="root">cartnum</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,17 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+body{font-size: 12px;font-family:"SimSun","Microsoft YaHei";}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%;}
+a{text-decoration: none;}
+.clearfix:after{display:block; content:'.'; clear:both; line-height:0; visibility:hidden;}
+.t_center{text-align:center;}.tr{text-align:right;}.tl{text-align:left;}
+.fl{float:left;}.fr{float:right;}
+.cl{clear:both;}
+
+

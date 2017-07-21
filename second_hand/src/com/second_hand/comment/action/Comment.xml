@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="comment" namespace="/comment"  extends="second_hand">
+		<action name="comment_*" class="commentAction" method="{1}">
+			<result name="add" type="json">
+				<param name="root">state</param>
+			</result>
+			<result name="sendMessageToSaleUser" type="redirect">/order/order_toListBuy.action?condition=${condition}</result>
+			<result name="deleteByUser" type="redirect">comment/comment_toListByUser.action</result>
+			<result name="delete">/jsp/user/com_manage_list.jsp</result>
+			<result name="toList">/jsp/user/com_manage_list.jsp</result>
+			<result name="toListToMeNo">/jsp/user/comment_list_no.jsp</result>
+			<result name="toListToMeYes">/jsp/user/comment_list_yes.jsp</result>
+			<result name="toListByUser">/jsp/user/mycomment_list.jsp</result>
+		</action>		
+</package>
+</struts>

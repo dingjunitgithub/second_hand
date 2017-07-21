@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.second_hand.model">
+	<class name="SchoolInfo" table="tb_schoolInfo">
+		<id name="schoolId" >
+			<generator class="sequence">
+				<param name="sequence">seq_schoolInfo_schoolId</param>
+			</generator>
+		</id>
+          
+		<property name="schoolName" type="string"></property>
+		
+		 <many-to-one name="city" column="cityId" lazy="false"></many-to-one> 
+		<bag name="departInfoList" cascade="all" inverse="true" >
+			<key column="schoolId"></key>
+			<one-to-many class="DepartmentInfo"/>
+		</bag>
+	</class>
+
+</hibernate-mapping>
